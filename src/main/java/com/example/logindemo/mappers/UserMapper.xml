@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.logindemo.mappers.UserMapper">
+
+    <select id="getUserByUsername" parameterType="java.lang.String" resultType="com.example.logindemo.mybatis.entity.User">
+        SELECT * FROM users WHERE username = #{username}
+    </select>
+
+    <insert id="insertUser" parameterType="com.example.logindemo.mybatis.entity.User">
+        INSERT INTO users (username, password) VALUES (#{username}, #{password})
+    </insert>
+
+    <select id="selectById" parameterType="java.lang.Long" resultType="com.example.logindemo.mybatis.entity.User">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
+</mapper>
